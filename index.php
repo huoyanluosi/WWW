@@ -19,32 +19,55 @@
             }
             /* 页面主体内容样式 */
             body {
-                width: 1000px;
+                max-width: 1000px;
                 margin-left: auto;
                 margin-right: auto;
+            }
+            ._body::after {
+                clear: both;
+                content: "";
+                display: block;
             }
         </style>
     </head>
 
     <body>
-        <!-- 表单代码开始区 -->
-            <?php
-                include("./小块件模板++/顶导航栏.html");
-                // include("./小块件模板++/左导航栏.html");
-                // include("./小块件模板++/目录树.html");
-                include("./小块件模板++/右导航栏.html");
-                include("./小块件模板++/页脚.html");
-            ?>
-        <!-- 表单代码结束区 -->
+        <div class="_body">
+            <!-- 表单代码开始区 -->
+                <?php
+                    include("./小块件模板++/顶导航栏.html");
+                    include("./小块件模板++/左导航栏.html");
+                    include("./小块件模板++/目录树.html");
+                    include("./小块件模板++/右导航栏.html");
+                ?>
+            <!-- 表单代码结束区 -->
+        </div>
+        <div>
+                <?php
+                    include("./小块件模板++/页脚.html");
+                ?>
+        </div>
+        <!-- <button onclick="">你哈</button> -->
 
-        <!-- <h2>你好, WORLD</h2>
-        <h2>你好, WORLD</h2>
-        <h2>你好, WORLD</h2>
-        <h2>你好, WORLD</h2>
-        <P>Hello, 小度</P>
-        <P>Hello, 小度</P>
-        <P>Hello, 小度</P>
-        <P>Hello, 小度</P> -->
+        <script>
+            // 获取内容的高度，将其作为左右栏的高度
+            adjustSize();
+            function adjustSize(){
+                var _content_ = document.getElementById('_content_');
+                const _left_bar_height = window.getComputedStyle(_content_).height;
+                var _left_bar_ = document.getElementById('_left_bar_');
+                var _right_bar_ = document.getElementById('_right_bar_');
+                
+                // alert(_left_bar_height);
+                _left_bar_.style.height = _left_bar_height;
+                _right_bar_.style.height = _left_bar_height;
+            }
+            // 在窗口调整大小时执行的函数
+            window.onresize = function(){
+                adjustSize();
+            }
+        </script>
+        
     </body>
 
 </html>
