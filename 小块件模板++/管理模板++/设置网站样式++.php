@@ -6,14 +6,15 @@
     <!-- PHP代码区开始区 -->
         <?php
                 // 添加样式cookie
+                
                 if( isset($_GET['bg_color']) ){
-                    setcookie("font_size", $_GET['font_size']);
+                    setcookie( "font_size", $_GET['font_size'], time()+3600, '/', "localhost" ,1);
                 }
                 if( isset($_GET['font_size'])) {
-                    setcookie("font_color", $_GET['font_color']);
+                    setcookie( "font_color", $_GET['font_color'], time()+3600, '/', "localhost" ,1);
                 }
                 if( isset($_GET['bg_color']) ){
-                    setcookie("bg_color", $_GET['bg_color']);
+                    setcookie( "bg_color", $_GET['bg_color'], time()+3600, '/', "localhost" ,1);
                 }
                 $_GET = array();    // 之后没用$_GET了，故清空它
         ?>
@@ -21,11 +22,6 @@
 
     <head>
         <style>
-            /* 页面默认样式 */
-            * {
-                box-sizing: border-box;
-                text-align: center;
-            }
             /* 表单的格式 */
             form span{
                 display: inline-block;

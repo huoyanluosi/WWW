@@ -4,7 +4,9 @@
     <title>我要学PHP</title>
     
     <!-- PHP代码区开始区 -->
-
+    <?php
+        ob_start();
+    ?>
     <!-- PHP代码结束区 -->
 
     <head>
@@ -39,6 +41,7 @@
                     include("./小块件模板++/左导航栏.html");
                     include("./小块件模板++/目录树.html");
                     include("./小块件模板++/右导航栏.html");
+                    include('./小块件模板++/管理模板++/设置网站样式++.php');
                 ?>
             <!-- 表单代码结束区 -->
         </div>
