@@ -30,6 +30,25 @@
                 content: "";
                 display: block;
             }
+            /* 用户偏好设置 */
+                /* 从cookie中获取样式 */
+            ._user_preferences_,body{
+                font-size: <?php 
+                    if( isset($_COOKIE['font_size']) ){
+                        print $_COOKIE['font_size'] . ";";
+                    }else{print ";";}
+                ?>
+                color: <?php 
+                    if( isset($_COOKIE['font_color']) ){
+                        print $_COOKIE['font_color'] . ";";
+                    }else{print ";";}
+                ?>
+                background-color: <?php 
+                    if( isset($_COOKIE['bg_color']) ){
+                        print $_COOKIE['bg_color'] . ";";
+                    }else{print ";";}
+                ?>
+            }
         </style>
     </head>
 
@@ -41,7 +60,6 @@
                     include("./小块件模板++/左导航栏.html");
                     include("./小块件模板++/目录树.html");
                     include("./小块件模板++/右导航栏.html");
-                    include('./小块件模板++/管理模板++/设置网站样式++.php');
                 ?>
             <!-- 表单代码结束区 -->
         </div>

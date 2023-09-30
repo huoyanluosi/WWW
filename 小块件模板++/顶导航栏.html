@@ -15,16 +15,18 @@
                 color: #DBDDDF;
                 overflow: hidden;
             }
-            .top_nav ul li{
+            .top_nav ul li {
                 display: inline-block;
-                /* float: left; */
                 padding: 8px;
+            }
+            .top_nav ul li a {
+                color: aqua;
             }
             .top_nav::after {
                 clear:both;
             }
+            /* 响应式设计 */
             @media screen and (min-width: 1000px){
-                /* font-size: 5em; */
                 .top_nav {
                     font-size: 1.5em;
                     background-color: red;
@@ -41,20 +43,20 @@
     <body>
         <div class="top_nav">
             <ul style="list-style-type: none; margin: 0; padding: 0;">
-                <li><a url="">首页</a></li>
+                <li><a href="">首页</a></li>
                 <li style="margin-left: auto; margin-right: auto;">
-                    <li><a url="">导航一</a></li>
-                    <li><a url="">导航二</a></li>
-                    <li><a url="">导航三</a></li>
-                    <li><a url="">导航四</a></li>
-                    <li><a url="">导航五</a></li>
-                    <li><a url="">导航六</a></li>
+                    <li><a href="">导航一</a></li>
+                    <li><a href="">导航二</a></li>
+                    <li><a href="">导航三</a></li>
+                    <li><a href="">导航四</a></li>
+                    <li><a href="">导航五</a></li>
+                    <li><a href="">导航六</a></li>
                 </li>
-                <iv style="float: right;" ><a url="">登录或退出</a></li>
-                <li><a url="">帐号信息</a></li>
-
+                <div style="float: right;">
+                    <li><a href="http://localhost/小块件模板++/管理模板++/设置网站样式++.php">帐号信息</a></li>
+                    <li><a href="">登录或退出</a></li>
+                </div>
             </ul>
         </div>
-        
     </body>
 </html>

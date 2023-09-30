@@ -6,7 +6,6 @@
     <!-- PHP代码区开始区 -->
         <?php
                 // 添加样式cookie
-                
                 if( isset($_GET['bg_color']) ){
                     setcookie( "font_size", $_GET['font_size'], time()+3600, '/', "localhost" ,1);
                 }
@@ -53,7 +52,7 @@
                 font-size: <?php 
                     if( isset($_COOKIE['font_size']) ){
                         print $_COOKIE['font_size'] . ";";
-                    }else{print ";";}
+                    }else{print "1em;";}
                 ?>
                 color: <?php 
                     if( isset($_COOKIE['font_color']) ){
@@ -63,7 +62,7 @@
                 background-color: <?php 
                     if( isset($_COOKIE['bg_color']) ){
                         print $_COOKIE['bg_color'] . ";";
-                    }else{print ";";}
+                    }else{print "white;";}
                 ?>
             }
         </style>
