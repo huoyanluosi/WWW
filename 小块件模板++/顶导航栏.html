@@ -20,10 +20,40 @@
                 padding: 8px;
             }
             .top_nav ul li a {
-                color: aqua;
+                color: rgb(255, 255, 255);
+                text-decoration: none;
             }
             .top_nav::after {
                 clear:both;
+            }
+            /* 个人区 */
+            .login_quit_show img{
+                vertical-align:middle;
+                max-width:20px;
+                max-height: 20px;
+            }
+            .hidden {
+                width: max-content;
+                height: max-content;
+                display: none;
+                font-size: 0.8em; color: rgb(255, 255, 255);
+            }
+            .top_nav .login_quit_show:hover .hidden{
+                display: block;
+                position: absolute;
+                right: 0; left: auto; margin: auto;
+            }
+            .top_nav .hidden ul li{ 
+                padding: 0; margin: 0; 
+                display: block;
+             }
+            .top_nav .hidden ul li a{
+                border: 4px solid rgb(181, 255, 255);
+                border-bottom: 0px solid transparent;
+                color: rgb(111, 255, 0); 
+                background-color: white;
+                display: block; 
+                padding: 5px;
             }
             /* 响应式设计 */
             @media screen and (min-width: 1000px){
@@ -54,7 +84,20 @@
                 </li>
                 <div style="float: right;">
                     <li><a href="http://localhost/小块件模板++/管理模板++/设置网站样式++.php">帐号信息</a></li>
-                    <li><a href="">登录或退出</a></li>
+                    <li><a onclick="loggin_window_start()" href="#">登录或退出</a></li>
+                    <li>
+                        <div class="login_quit_show">
+                            <img src="./图片文件夹++/users.jpg" id="user_face_image"/>
+                            <div class="hidden">
+                                <ul >
+                                    <li > <a>查看个人简历</a> </li>
+                                    <li > <a>查看个人简历</a> </li>
+                                    <li > <a>查看个人简历</a> </li>
+                                    <li > <a>查看个人简历</a> </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
                 </div>
             </ul>
         </div>

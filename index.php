@@ -57,6 +57,8 @@
             <!-- 表单代码开始区 -->
                 <?php
                     include("./小块件模板++/顶导航栏.html");
+                    include("./小块件模板++/管理模板++/loggin.php");
+                    // include("./小块件模板++/管理模板++/登陆验证.php");
                     include("./小块件模板++/左导航栏.html");
                     include("./小块件模板++/目录树.html");
                     include("./小块件模板++/右导航栏.html");
@@ -86,6 +88,15 @@
             // 在窗口调整大小时执行的函数
             window.onresize = function(){
                 adjustSize();
+            }
+            // 登陆界面
+            function loggin_window_start(){
+                let PasswordForm =document.getElementById('PasswordForm');
+                PasswordForm.style.display = 'flex';
+            }
+            function loggin_window_close(){
+                let PasswordForm =document.getElementById('PasswordForm');
+                PasswordForm.style.display = 'none';
             }
         </script>
         
