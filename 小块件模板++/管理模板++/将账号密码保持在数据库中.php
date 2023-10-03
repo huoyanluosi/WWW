@@ -3,7 +3,9 @@
     <?php
         if( $_SERVER['REQUEST_METHOD']=='GET' ){ 
             # 判断注册表单的信息是否正确
-            if( (isset($_GET['USER'])) AND (isset($_GET['PASSWD'])) AND (isset($_GET['NAME'])) AND !empty($_GET('USER')) AND !empty($_GET('PASSWD')) AND !empty($_GET('NAME')) ) {
+            if( (isset($_GET['USER'])) AND (isset($_GET['PASSWD1'])) AND (isset($_GET['PASSWD2'])) AND (isset($_GET['NAME'])) AND !empty($_GET['USER']) AND !empty($_GET['PASSWD1']) 
+                AND !empty($_GET['PASSWD2']) AND !empty($_GET['NAME']) AND ($_GET['PASSWD1']==$_GET['PASSWD2']) ) {
+                    
                     # 抑制错误或警告，自己来处理。
                     if($dbc = @mysqli_connect('localhost','root','root')) {
                         print "登陆成功<pre>"; print_r($dbc); print "</pre>";
@@ -40,8 +42,9 @@
                         function 插入数据($dbc){
                             date_default_timezone_set('Asia/Shanghai');    // 设置时区
                                     # 为插入准备数据
-                                    $USER = $_GET['USER']; $PASSWD = $_GET['PASSWD']; $NAME = $_GET['NAME'];
-                                    $MY_DATA = array('USER'=>$USER, 'PASSWD'=>$PASSWD, 'REG_TIME'=>date('Y-n-j G:i',time()), 'NAME'=>$NAME , 'ADDRESS'=>$_GET['ADDRESS']);
+                                    $USER = $_GET['USER']; $PASSWD = $_GET['PASSWD1']; $NAME = $_GET['NAME']; 
+                                    if( isset($_GET['ADDRESS']) ) { $ADDRESS=$_GET['ADDRESS']; } else { print "执行"; $ADDRESS=''; }     // 表单中的非必要填写项
+                                    $MY_DATA = array('USER'=>$USER, 'PASSWD'=>$PASSWD, 'REG_TIME'=>date('Y-n-j G:i',time()), 'NAME'=>$NAME , 'ADDRESS'=>$ADDRESS);
                                     print '<pre>'; print_r($MY_DATA); print '</pre>';
                                     $SQL_Command = "
                                         INSERT INTO TABLE_OF_PHP(USER, PASSWD, REG_TIME, NAME, ADDRESS) VALUES(" 
@@ -61,7 +64,7 @@
                         print "<p> 错误信息：".  mysqli_connect_error() . "</p>";
                         throw new Exception('连接数据库失败', 1234);
                     }
-            }else { print '<p style="color:red;">未能插入数据，请确保相应选项已经填写好了</p>'; }
+            }else { print '<p style="color:red;">未能插入数据，请确保相应选项已经填写正确了</p>'; }
         }
     ?>
     <body>

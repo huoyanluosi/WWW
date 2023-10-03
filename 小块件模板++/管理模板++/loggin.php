@@ -51,6 +51,7 @@
             <input type="submit" name="logging_submit" value="登陆" onclick="return login_tip_check()" /> </p>
             <p id="login_tip"></p>
             <p> <a href='./小块件模板++/忘记密码.php' style="color:white; bottom:0; right:0; margin: 10px;position: absolute;">忘记密码? </a> </p>
+            <p> <a href='./小块件模板++/管理模板++/register.php' style="color:white; bottom:0; left:0; margin: 10px;position: absolute;">注册? </a> </p>
         </form>
 
         <script>
