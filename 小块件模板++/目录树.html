@@ -7,13 +7,20 @@
         <link href="./fonts.css" rel="stylesheet" type="text/css" />
         <!-- CSS样式区 -->
         <style>
-            .article_dirs {
+            /* 内容区的样式 */
+            ._body_ {
                 float: left;
                 padding: 1px 30px;
                 left: 200px;
                 background-color: antiquewhite;
                 width: 70%;
                 padding-left: 30px;
+            }
+            /* 目录的样式 */
+            .article_dirs {
+                padding: 20px;
+                margin: 5px 5px 15px 5px;
+                border: 3px dashed red;
             }
             .article_dirs ul {
                 color: #555557;
@@ -25,45 +32,49 @@
             .article_dirs .par_title {
                 color: #D64A43;
             }
+            /* 正文的样式 */
+            .main_text {
+                padding: 10px;
+            }
         </style>
-        <!-- JS代码区 -->
-        <script>
-
-        </script>
     </head>
 
     <!-- 网页主体区 -->
     <body>
-        <div class="article_dirs">
-                <h1>文章目录</h1>
-                <!-- 第一主目录标题 -->
-                <div>
-                    <ul>
-                        <li class="par_title">区域一</li>
+        <div class="_body_" id="_content_">
+            <!-- 显示目录 -->
+            <div class="article_dirs">
+                    <h1>文章目录</h1>
+                    <!-- 第一主目录标题 -->
+                    <div>
                         <ul>
-                            <li><a>子标题一</a></li>
-                            <li><a>子标题二</a></li>
+                            <li class="par_title">区域一</li>
+                            <ul>
+                                <li><a>子标题一</a></li>
+                                <li><a>子标题二</a></li>
+                            </ul>
                         </ul>
-                    </ul>
-                </div>
-                <!-- 第一主目录标题 -->
-                <div>
-                    <ul>
-                        <li class="par_title">区域一</li>
+                    </div>
+                    <!-- 第二主目录标题 -->
+                    <div>
                         <ul>
-                            <li><a>子标题一</a></li>
-                            <li><a>子标题二</a></li>
+                            <li class="par_title">区域一</li>
+                            <ul>
+                                <li><a>子标题一</a></li>
+                                <li><a>子标题二</a></li>
+                            </ul>
                         </ul>
-                    </ul>
-                </div>
+                    </div>
+            </div>
+            <hr/>
+            <div class="main_text">
+                <p>你好, 小度。你好, 小度。你好, 小度。你好, 小度。你好, 小度。</p>
+                <p>你好, 小度。你好, 小度。你好, 小度。你好, 小度。你好, 小度。</p>
+                <p>你好, 小度。你好, 小度。你好, 小度。你好, 小度。你好, 小度。</p>
+                <p>你好, 小度。你好, 小度。你好, 小度。你好, 小度。你好, 小度。</p>
+                <p>你好, 小度。你好, 小度。你好, 小度。你好, 小度。你好, 小度。</p>
+                <p>你好, 小度。你好, 小度。你好, 小度。你好, 小度。你好, 小度。</p>
+            </div>
         </div>
-        <!-- <h2>你好, WORLD</h2>
-        <h2>你好, WORLD</h2>
-        <h2>你好, WORLD</h2>
-        <h2>你好, WORLD</h2>
-        <P>Hello, 小度</P>
-        <P>Hello, 小度</P>
-        <P>Hello, 小度</P>
-        <P>Hello, 小度</P> -->
     </body>
 </html>
