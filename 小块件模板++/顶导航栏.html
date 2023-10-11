@@ -1,103 +1,19 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
-    <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <title>我要学PHP</title>
-    <!-- 网页头部区 -->
-    <head>
-        <!-- CSS样式区 -->
-        <style>
-            .top_nav {
-                font-family: 沐瑶软笔手写体;
-                width: 100%; height: auto;
-                padding: 10px;
-                margin: 0;
-                background-color: #6E6E6E;
-                color: #DBDDDF;
-                overflow: hidden;
-            }
-            .top_nav ul li {
-                display: inline-block;
-                padding: 8px;
-            }
-            .top_nav ul li a {
-                color: rgb(255, 255, 255);
-                text-decoration: none;
-            }
-            .top_nav::after {
-                clear:both;
-            }
-            /* 个人区 */
-            .login_quit_show img{
-                vertical-align:middle;
-                max-width:20px;
-                max-height: 20px;
-            }
-            .hidden {
-                width: max-content;
-                height: max-content;
-                display: none;
-                font-size: 0.8em; color: rgb(255, 255, 255);
-            }
-            .top_nav .login_quit_show:hover .hidden{
-                display: block;
-                position: absolute;
-                right: 0; left: auto; margin: auto;
-            }
-            .top_nav .hidden ul li{ 
-                padding: 0; margin: 0; 
-                display: block;
-             }
-            .top_nav .hidden ul li a{
-                border: 4px solid rgb(181, 255, 255);
-                border-bottom: 0px solid transparent;
-                color: rgb(111, 255, 0); 
-                background-color: white;
-                display: block; 
-                padding: 5px;
-            }
-            /* 响应式设计 */
-            @media screen and (min-width: 1000px){
-                .top_nav {
-                    font-size: 1.5em;
-                    background-color: red;
-                }
-            }
-        </style>
-        <!-- JS代码区 -->
-        <script>
-
-        </script>
-    </head>
-
-    <!-- 网页主体区 -->
-    <body>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<head>
+</head>
+<body>
         <div class="top_nav">
-            <ul style="list-style-type: none; margin: 0; padding: 0;">
-                <li><a href="">首页</a></li>
-                <li style="margin-left: auto; margin-right: auto;">
-                    <li><a href="">导航一</a></li>
-                    <li><a href="">导航二</a></li>
-                    <li><a href="">导航三</a></li>
-                    <li><a href="">导航四</a></li>
-                    <li><a href="">导航五</a></li>
-                    <li><a href="">导航六</a></li>
-                </li>
+            <ul class="clear_list_style">
+                <li><a href="http://localhost/">首页</a></li>
+                <li><a href="#">博客日记</a></li>
+                <li><a href="http://localhost/小块件模板++/技术交流.php">技术交流</a></li>
+                <li><a href="#">网站文件</a></li>
+                <li><a href="#">资源区</a></li>
                 <div style="float: right;">
-                    <li><a href="http://localhost/小块件模板++/管理模板++/设置网站样式++.php">帐号信息</a></li>
-                    <li><a onclick="loggin_window_start()" href="#">登录或退出</a></li>
-                    <li>
-                        <div class="login_quit_show">
-                            <img src="./图片文件夹++/users.jpg" id="user_face_image"/>
-                            <div class="hidden">
-                                <ul >
-                                    <li > <a>查看个人简历</a> </li>
-                                    <li > <a>查看个人简历</a> </li>
-                                    <li > <a>查看个人简历</a> </li>
-                                    <li > <a>查看个人简历</a> </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </li>
+                    <li > <a onclick="loggin_window_start()" style="cursor:pointer;">登陆</a> </li>
+                    <li > <a href="http://localhost/小块件模板++/管理模板++/register.php" >注册</a> </li>
                 </div>
             </ul>
         </div>

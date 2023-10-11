@@ -6,3 +6,15 @@
     font-family: '沐瑶软笔手写体';
     src: url('./fonts/沐瑶软笔手写体.ttf');
 }
+@font-face {
+    font-family: '方正楷体';
+    src: url('./fonts/方正楷体简体.ttff');
+}
+@font-face {
+    font-family: '常规楷体';
+    src: url('./fonts/常规楷体.ttff');
+}
+@font-face {
+    font-family: '青鸟华光简淡古印';
+    src: url('./fonts/青鸟华光简淡古印.ttff');
+}

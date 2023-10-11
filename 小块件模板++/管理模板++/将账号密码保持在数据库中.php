@@ -1,73 +1,74 @@
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <?php
-        if( $_SERVER['REQUEST_METHOD']=='GET' ){ 
-            # 判断注册表单的信息是否正确
-            if( (isset($_GET['USER'])) AND (isset($_GET['PASSWD1'])) AND (isset($_GET['PASSWD2'])) AND (isset($_GET['NAME'])) AND !empty($_GET['USER']) AND !empty($_GET['PASSWD1']) 
-                AND !empty($_GET['PASSWD2']) AND !empty($_GET['NAME']) AND ($_GET['PASSWD1']==$_GET['PASSWD2']) ) {
-                    
-                    # 抑制错误或警告，自己来处理。
-                    if($dbc = @mysqli_connect('localhost','root','root')) {
-                        print "登陆成功<pre>"; print_r($dbc); print "</pre>";
-                        # 尝试创建数据库
-                        $MY_DB = "CREATE_BY_PHP";       // 要创建的数据库名字
-                        # 尝试执行创建的操作
-                        if( @mysqli_query( $dbc , "CREATE DATABASE $MY_DB") ){
-                            print "<p style='color:green'>已创建 $MY_DB 数据库";
-                        }else{print '<p style="color:red">创建数据库时失败：' . mysqli_error($dbc) . '</p>';}
-                        
-                        # 选择数据库
-                        # 尝试执行选择数据库
-                        if( @mysqli_select_db($dbc, $MY_DB) ){
-                            print "<p style='color:green'>已选择 $MY_DB 数据库";
-                        }else{print '<p style="color:red">选择数据库时失败：' . mysqli_error($dbc) . '</p>';}
-                        
-                        # 创建数据表和向表中添加段名（就算重复创建表，表中的数据也不会丢失）
-                        $SQL_Command = '    
-                            CREATE TABLE TABLE_OF_PHP(
-                                `USER` varchar(20) not null,
-                                `PASSWD` varchar(20) not null DEFAULT "root",
-                                `REG_TIME` timestamp(3),
-                                `NAME` varchar(20) NULL,
-                                `ADDRESS` varchar(20) NULL,
-                                primary key(`USER`)
-                            );
-                        ';
-                        # 尝试执行创建数据表
-                        if( @mysqli_query($dbc, $SQL_Command) ) {
-                            print "已创建表";
-                        }else{print '<p style="color:red">创建表时失败：' . mysqli_error($dbc) . '</p>';}
+    <head>
+        <link rel="stylesheet" href="http://localhost/fonts/Font%20Awesome/Font%20Awesome.css"/>
+        <link rel="stylesheet" href="http://localhost/fonts.css" type="text/css" >
+        <link rel="stylesheet" href="http://localhost/style.css" type="text/css" />
+    </head>
+    <bosy>
 
-                        # 作用为插入数据的函数
-                        function 插入数据($dbc){
-                            date_default_timezone_set('Asia/Shanghai');    // 设置时区
-                                    # 为插入准备数据
-                                    $USER = $_GET['USER']; $PASSWD = $_GET['PASSWD1']; $NAME = $_GET['NAME']; 
-                                    if( isset($_GET['ADDRESS']) ) { $ADDRESS=$_GET['ADDRESS']; } else { print "执行"; $ADDRESS=''; }     // 表单中的非必要填写项
-                                    $MY_DATA = array('USER'=>$USER, 'PASSWD'=>$PASSWD, 'REG_TIME'=>date('Y-n-j G:i',time()), 'NAME'=>$NAME , 'ADDRESS'=>$ADDRESS);
-                                    print '<pre>'; print_r($MY_DATA); print '</pre>';
-                                    $SQL_Command = "
-                                        INSERT INTO TABLE_OF_PHP(USER, PASSWD, REG_TIME, NAME, ADDRESS) VALUES(" 
-                                        .'"'. $MY_DATA['USER'] .'","' . $MY_DATA['PASSWD'] .'","'. $MY_DATA['REG_TIME'] .'","'. $MY_DATA['NAME'] .'","'. $MY_DATA['ADDRESS'] .'"'. ');
-                                    ';
-                                    # 执行插入操作
-                                    if( @mysqli_query($dbc, $SQL_Command) ) {
-                                        print "已插入一条数据";
-                                    }else{print '<p style="color:red">插入数据时失败：' . mysqli_error($dbc) . '</p>';}
-                        }
-                        插入数据($dbc);      // 调用函数
-                        
-                        # 关闭数据库
-                        mysqli_close($dbc);
-                    }else{
-                        # 无法连接数据库的操作
-                        print "<p> 错误信息：".  mysqli_connect_error() . "</p>";
-                        throw new Exception('连接数据库失败', 1234);
+
+
+
+
+
+    <?php
+        if( $_SERVER['REQUEST_METHOD']=='POST' ){ 
+            # 判断注册表单的信息是否正确
+            if( (isset($_POST['PASSWD1'])) AND (isset($_POST['PASSWD2'])) AND ($_POST['PASSWD1']==$_POST['PASSWD2']) 
+                AND !empty($_POST['USER']) ) 
+            {
+                    
+                    # 包含连接数据库的脚本[该脚本若失败则返回false]
+                    if( !include('../../../WWW/小块件模板++/管理模板++/连接数据库.php')) { exit(); }
+                    
+                    # 创建数据表和向表中添加段名（就算重复创建表，表中的数据也不会丢失）
+
+                    # 作用为插入数据的函数
+                    function 插入数据($dbc){
+                                date_default_timezone_set('Asia/Shanghai');    // 设置时区
+                                # 为插入准备数据
+                                $USER = $_POST['USER']; $PASSWD = $_POST['PASSWD1'];
+                                if( isset($_POST['ADDRESS']) ) { $ADDRESS=$_POST['ADDRESS']; } else { print "执行"; $ADDRESS=''; }     // 表单中的非必要填写项
+                                if( isset($_POST['NAME']) ) { $NAME=$_POST['NAME']; } else { print "执行"; $NAME=''; }     // 表单中的非必要填写项
+                                $手机号 = "";       // 暂时不提供手机号注册和登陆
+                                $邮箱 = "";         // 暂时不提供邮箱注册和登陆
+
+                                $MY_DATA = array( 'USER'=>$USER, 'email '=>$邮箱, 'phone'=> $手机号, 'PASSWD'=>$PASSWD, 'NAME'=>$NAME , 'ADDRESS'=>$ADDRESS, 'REG_TIME'=>date('Y-n-j G:i',time()) );
+                                // print '<pre>'; print_r($MY_DATA); print '</pre>';
+
+                                $SQL_Command = "
+                                    INSERT INTO 账号信息表(昵称, 邮箱, 手机号, 密码, 姓名, 地址, 注册数据时间) VALUES(" 
+                                    .'"'. $MY_DATA['USER'] .'","' . $邮箱 .'","'. $手机号. '","'. $MY_DATA['PASSWD'] .'","'. $MY_DATA['NAME'] .'","'. $MY_DATA['ADDRESS'] .'","'. $MY_DATA['REG_TIME'] .'"'   .   ');';
+                                # 执行插入操作
+                                if( @mysqli_query($dbc, $SQL_Command) ) {
+                                    // print "已插入一条数据";
+                                    print "<p class='成功' > 已成功注册，返回登陆即可</p>";
+                                }else{
+                                    // print '<p style="color:red">插入数据时失败：' . mysqli_error($dbc) . '</p>';
+                                    print "<p class='失败'> !警告 你输入的账号已存在</p>";
+                                }
                     }
-            }else { print '<p style="color:red;">未能插入数据，请确保相应选项已经填写正确了</p>'; }
+                    插入数据($dbc);      // 调用函数
+                    
+                    # 关闭数据库
+                    mysqli_close($dbc);
+                    
+            }else { 
+                print "<p class='失败'>不能注册，请确保相应选项已经填写完整了</p>"; 
+            }
         }
     ?>
     <body>
         <!--  没有内容 -->
     </body>
 </html>
+
+
+
+
+
+
+    </bosy>
+<html>

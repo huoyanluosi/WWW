@@ -1,2 +1,24 @@
-<form enctype=""
-<pre></pre>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<head>
+<script type="text/javascript" src="G:/game/++/phpstudy_pro/WWW/框架/jquery-3.7.1.js"></script>
+<style>
+    /* 匹配所有作为第一个子元素的 <p> 元素中的所有 <i> 元素 */
+         * {
+
+         }
+</style>
+<script> 
+function getRelatedElement(event){ 
+    alert("鼠标指针移到了 " + event.relatedTarget.tagName + " 元素"); 
+}
+</script>
+</head>
+    
+
+        <body >
+                <p onmouseout="getRelatedElement(event)">你好</p>
+        </body>
+
+</html>

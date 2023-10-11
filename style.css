@@ -1,0 +1,224 @@
+/* 默认样式 */
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+h1 {
+    padding-bottom: 15px;
+}
+/* 页面主体内容样式 */
+body {
+    width: 1920px;
+    height: 1080px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.clear_list_style {
+    list-style-type: none; margin: 0; padding: 0;
+}
+/* LOGO字体样式 */
+.LOGO {
+    font-size: 50px;
+    float: left;
+    color: #777777;
+}
+/* 清理浮动 */
+.clearfloat::before, .clearfloat::after {
+    clear: both;
+    content: "";
+    display: block;
+}
+.失败 { color: rgb(253, 143, 143); }
+.成功 { color: rgb(183, 255, 75); }
+.成功 {background-color: rgba(0, 0, 0, 0.7); padding-left: 30px;}
+.失败 {background-color: rgba(0, 0, 0, 0.7); padding-left: 30px;}
+.代码 {color: white; padding: 5px;}
+
+/* Font Awesome 字体样式 */
+/* .icon-31 { color: #777777;} */
+
+/* # 导航栏样式 */
+.top_nav {
+    font-family: 沐瑶软笔手写体;
+    width: 100%;  height: 50px;
+    background-color: #FFFFFF;
+    color: #333333; font-size: 36px;  line-height: 25px; 
+    overflow: hidden;
+}
+.top_nav li {
+    display: inline-block;
+    padding: 8px;
+    width: 228px;
+    text-align: center;
+    
+}
+.top_nav ul li a {
+    text-decoration: none;
+}
+.top_nav::after {
+    clear:both;
+}
+
+
+/* 个人区 */
+.login_quit_show img{
+    vertical-align:middle;
+    max-width:20px;
+    max-height: 20px;
+}
+.top_nav .login_quit_show:hover .hidden{
+    display: block;
+    position: absolute;
+    right: 0; left: auto; margin: auto;
+}
+.top_nav .hidden ul li{ 
+    padding: 0; margin: 0; 
+    display: block;
+ }
+.top_nav .hidden ul li a{
+    border: 4px solid rgb(181, 255, 255);
+    border-bottom: 0px solid transparent;
+    color: rgb(111, 255, 0); 
+    background-color: white;
+    display: block; 
+    padding: 5px;
+}
+
+/* #中心内容 */
+        /* 内容区的样式 */
+        ._body_ {
+            letter-spacing: 3px;
+            width: 1467px;
+        }
+        /* 目录的样式 */
+        .article_dirs {
+            padding: 20px; 
+            border: 3px dashed red;
+            background-color: #EFF3EF;
+            border: 1px solid #797979;
+        }
+        .article_dirs ul {
+            color: #555557;
+            margin: 0;  padding-left: 30px;
+        }
+        .article_dirs li {
+            color: #555557;
+        }
+        .article_dirs .par_title {
+            color: #D64A43;
+        }
+        /* 正文的样式 */
+        .main_text {
+            padding: 10px;
+        }
+
+/* 左右导航栏 */
+.left_nav, .right_nav {
+    background-color: #EFF3EF;
+    border: 1px solid #797979;
+    width: 205px;
+    color: #333333;
+    font-size: 0.6em;
+    padding: 20px;
+    line-height: 30px;
+}
+.title_index {
+    padding-top: 20px;
+}
+/* 页脚 */
+.footer {
+    font-family: 常规楷体;
+    text-align: center;
+    background-color: #F2F2F2;
+    font-size: 18px; line-height: 34px;
+    font-weight:100;
+    width: 100%; padding: 10px;
+}
+.footer .statement a{
+    text-decoration: 1.5px underline #404040;
+    color: #404040; font-weight: 600;
+    padding: 5px;
+}
+
+
+/* #登陆界面的样式 */
+        #login_window {
+            width: 1920px; height: 746px;
+            display: none;
+            /* display: flex; */
+            position: absolute; 
+            text-align: center;
+            flex-direction: column;
+            justify-content:center;
+        }
+        #login_window .居中 {
+            height: 531px; width: 908px;
+            margin-left: auto; margin-right: auto;
+            z-index: 0;
+            background: url('http://localhost/图片文件夹++/疑惑的二个机器人.jpg') no-repeat;  background-size: cover;
+        }
+        #register_interface {
+            width: 100%; height: 865px;
+            background: url('http://localhost/图片文件夹++/蔚蓝海洋.png') no-repeat;  background-size: cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .PasswordForm {
+            font-size: 36px;    color:#FFFFFF;  text-align: center; line-height: 80px;  font-family: 青鸟华光简淡古印;
+        }
+
+        .PasswordForm span{
+            width: auto; height: 60px;
+            text-align: right;
+            display: inline-block;
+            vertical-align: baseline;
+        }
+        .PasswordForm input[type='text'], .PasswordForm input[type='email'], .PasswordForm input[type='password']{
+            width: 699px; height: 60px; 
+            background-color: transparent;
+            border-width: 4px; border-color: transparent transparent #FFFFFF transparent;   outline: 0;
+            font-size: 36px;    color: #FFFFFF;
+        }
+        .PasswordForm .logging_submit p {
+            padding: 2%; width: 40%;
+        }
+        .PasswordForm .logging_submit input:hover {
+            /* opacity: 0.4; border-radius: 50%; */
+            /* background-color: darkblue; color: white; */
+            /* transition: 2s; */
+        }
+        /* 关闭登陆界面的按钮的样式 */
+        .PasswordForm .close_loggin_window {
+            /* width:30px; 
+            right:0px; margin:10px; top:0; 
+            position:absolute;  */
+        }
+
+/* # 清理浮动 */
+.clear_float::after {
+    clear: both;
+    content: "";
+    display: block;
+}
+
+
+/* 网格布局 */
+#_left_bar_ { grid-area: _left_bar;}
+#_content_ { grid-area: _content;}
+#_right_bar_ { grid-area: _right_bar;}
+#crumb { grid-area: _crumb;}
+#Carousel_windows {grid-area: _Carousel_windows;}
+#login_window {grid-area: _login_window;}
+/* .grid-container {
+        grid-gap: 21px; 
+} */
+
+/* 响应式设计 */
+/* @media screen and (min-width: 1000px){
+    .top_nav {
+        font-size: 1.5em;
+        background-color: red;
+    }
+} */

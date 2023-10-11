@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <!-- <link rel="stylesheet" href="http://localhost/style.css" type="text/css" /> -->
+    <style>
+        /* 面包屑 */
+        #crumb {
+            border: 1px solid #797979;
+            width: 1467px; height: fit-content;
+            padding: 10px 30px;
+            font-size: 18px; 
+            background-color: aqua;
+        }
+        #crumb p {margin: 0;}
+        #crumb span:not(span:empty):not(#crumb_head)::before, #crumb span:nth-of-type(2)::before {
+            content: "/";
+            padding: 0 15px;
+        }
+    </style>
+
+    <body>
+        <div id="crumb">
+            <p> <span id="crumb_head">首页</span><span id="crumb_1"></span><span id="crumb_2"></span> <span id="crumb_3"></span><span id="crumb_4"></span><span id="crumb_5"></span><span id="crumb_4"></span>
+            </p>
+        </div>
+    </body>
+</html>
