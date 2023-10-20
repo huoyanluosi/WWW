@@ -1,0 +1,32 @@
+
+
+<?php
+
+  function 递归目录($初始化=false, $递归的根路径, &$目录的总大小) {
+    if($初始化){
+      if( !is_dir($初始化) ){ print "你输入的不是一个目录"; }
+      $递归的根路径 = $初始化;
+      if( substr($递归的根路径, -1)!='/' ){ $递归的根路径 .= '/';  }
+      // scandir($递归的根路径);
+      // print "该——————dww: $递归的根路径";
+    }
+    // print "-----" . $递归的根路径 . "</br>";
+    
+    foreach( scandir($递归的根路径) as $value ){
+      if( $value=='.' OR $value=='..' ) { continue; }
+      if( is_dir($递归的根路径.$value) ){
+            print "<pre>我是$递归的根路径$value</pre>";
+            递归目录(false , $递归的根路径.$value.'/', $目录的总大小);
+        }elseif( is_file($递归的根路径.$value) ){
+          print "<pre>路径$value</pre>";
+          $目录的总大小 += filesize($递归的根路径.$value);
+          print "<pre>总倒下：$目录的总大小</pre>";
+        }
+    }
+    return $目录的总大小;
+  }
+  $目录的总大小=0;
+  递归目录("G:/game/++/phpstudy_pro/WWW/.git", null, $目录的总大小);
+  print "<pre>总大小为: $目录的总大小 </pre>";
+
+?>

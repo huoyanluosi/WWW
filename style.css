@@ -211,14 +211,3 @@ body {
 #crumb { grid-area: _crumb;}
 #Carousel_windows {grid-area: _Carousel_windows;}
 #login_window {grid-area: _login_window;}
-/* .grid-container {
-        grid-gap: 21px; 
-} */
-
-/* 响应式设计 */
-/* @media screen and (min-width: 1000px){
-    .top_nav {
-        font-size: 1.5em;
-        background-color: red;
-    }
-} */

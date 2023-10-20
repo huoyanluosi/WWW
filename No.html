@@ -5,20 +5,78 @@
 <script type="text/javascript" src="G:/game/++/phpstudy_pro/WWW/框架/jquery-3.7.1.js"></script>
 <style>
     /* 匹配所有作为第一个子元素的 <p> 元素中的所有 <i> 元素 */
-         * {
+         /* * {
 
+         } */
+         button {
+                width: 25%;
+                background-color: blueviolet;
+                text-align: center;
+         }
+         video {
+                width: 50%;
+                display: block; background-color: white;
+         }
+         audio {
+                position: absolute;
+                bottom: 0; right: 0;
+         }
+         #my_buttons { grid-area: my_buttons; }
+         #my_video { grid-area: my_video; }
+         #my_grid {
+                position: relative;
+                width: 550px; height: 325px;
+                margin: auto;
+                background-color: black;
+                display: grid;
+                grid:
+                    'my_buttons'
+                    'my_video'
+                ;
+                line-height: 0;
          }
 </style>
 <script> 
-function getRelatedElement(event){ 
-    alert("鼠标指针移到了 " + event.relatedTarget.tagName + " 元素"); 
-}
+
 </script>
 </head>
     
 
-        <body >
-                <p onmouseout="getRelatedElement(event)">你好</p>
-        </body>
+<body >
+        <div id="my_grid">
+                <div id="my_buttons">
+                        <button onclick="My_fun(1)">获取已缓冲的部分</button>
+                </div>
+                
+                <video controls autoplay  id="my_video">
+                        <source   src="http://localhost/Video++/法盾.mp4" type="video/mp4" />
+                        <track default king="captions" srclang="en" label="My_Hello" />
+                </video>    
+                <div id="my_audios">
+                        <audio controls id="my_audio_1">
+                                <source src="http://localhost/audio++/梦然-是你.mp3"/>
+                        </audio>  
+                </div>    
+
+        </div>
+
+
+        <form action="demo_keygen. php" method="get"> 
+                用户名: <input type="text" name="usr_name">
+                加密：<keygen name="security"> 
+                <input type="submit"> 
+        </form>
+      
+
+<script>
+        function My_fun(my_operation){
+                var obj = document.getElementById('my_audio');
+                if(my_operation){
+                        my_str = `第一个已缓冲的起点：${obj.buffered.start(0)}；第一个已缓冲的终点：${obj.buffered.end(0)}`;
+                        console.log(my_str);
+                }
+        }
+</script>
+</body>
 
 </html>
