@@ -1,78 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
-    <title>Document</title>
-    <style>
-        * { box-sizing: border-box; }
-        img {
-            /* filter: blur(5px); */
-            width: 100%;
-            float: left;
-            /* margin: 0; padding: 0; */
-            background-color: red;
-        }
-        .My_img_content { 
-            width: 20%;
-            text-align: center;
-            float: left;
-            padding: 0 5px 5px 5px;
-        }
-        span{
-            width: 100%;
-            display: inline-block;
-            position: relative;
-            background-color:aquamarine;
-            border-radius: 100% 100% 0 0 / 10px 10px 0 0;
-            border-bottom-width: 10px;
-            margin: 0 0 5px 0;
-        }
-        span::after {
-            content: '';
-            left:50%;
-            margin-left: -10px;
-            top: 100%;
-            border:10px solid;
-            position: absolute;
-            border-color: aquamarine transparent transparent transparent;
-        }
-        
-
-    </style>
+  <title>Bootstrap 实例</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.1.0/css/bootstrap.min.css">
+  <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdn.staticfile.org/twitter-bootstrap/4.1.0/js/bootstrap.min.js"></script>
 </head>
 <body>
 
-<script>
-    $(document).ready(function() {
-        console.log(2);
-        var My_body = document.body;
-        var tmp = '';
-        var MyFilter_array = ['none', 'blur(5px)', 'brightness(50%)', 'contrast(200%)', 'grayscale(75%)', 'hue-rotate(180deg)', 'invert(90%)', 'opacity(50%)', 'saturate(60%)', 'sepia(100%)', 'drop-shadow(0 0 60px aquamarine)'];
-        for(let i=0; i<11; i++) {
-            // 创建包含图片和提示的对象
-            let my_img_content = document.createElement("div");
-            my_img_content.className = "My_img_content";
+<div class="container-fluid">
+  <h1>我的 Bootstrap 页面</h1>
+  <p>使用了 .container-fluid，100% 宽度，占据全部视口（viewport）的容器。</p> 
+</div>
 
-            // 创建提示对象
-            let my_tip = document.createElement('span');
-            my_tip.innerHTML = MyFilter_array[i];
-
-            // 创建图片对象
-            let my_img_filter_object = document.createElement("img");
-            my_img_filter_object.src = "http://localhost/图片文件夹++/秋天的傍晚.jpg";
-            my_img_filter_object.style.filter = MyFilter_array[i];
-            
-            my_img_content.appendChild(my_tip);     //向容器中添加标签
-            my_img_content.appendChild(my_img_filter_object);   //向容器中添加图片
-
-            My_body.appendChild(my_img_content);
-
-            console.log(1);
-        }
-    })
-</script>
 </body>
 </html>

@@ -50,14 +50,14 @@
 </style>
 <body>
     <?php
-        include("G:/game/++/phpstudy_pro/WWW/小块件模板++/LOGO.html");
-        include("G:/game/++/phpstudy_pro/WWW/小块件模板++/顶导航栏.html");
-        include("G:/game/++/phpstudy_pro/WWW/小块件模板++/管理模板++/登陆窗口.php");
+        include(__DIR__."/LOGO.html");
+        include(__DIR__."/顶导航栏.html");
+        include(__DIR__."/管理模板++/登陆窗口.php");
     ?>
     <div id="技术交流网格显示" style=" position:absolute; ">
         <?php
-            include("G:/game/++/phpstudy_pro/WWW/小块件模板++/左导航栏.html");
-            include("G:/game/++/phpstudy_pro/WWW/小块件模板++/面包屑.html");
+            include(__DIR__."/左导航栏.html");
+            include(__DIR__."/面包屑.html");
         ?>
         <div id="文章索引区" style=" position:absolute; z-index:100; margin:auto;">
             <div class="所有文章的一小部分">
@@ -86,8 +86,8 @@
             </div>
         </div>
         <?php
-            include("G:/game/++/phpstudy_pro/WWW/小块件模板++/右导航栏.html");
-            include("G:/game/++/phpstudy_pro/WWW/小块件模板++/页脚.html");
+            include(__DIR__."/右导航栏.html");
+            include(__DIR__."/页脚.html");
         ?>
     </div>
 

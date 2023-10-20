@@ -95,10 +95,10 @@
         ?>
 
 
-        <?php include("G:/game/++/phpstudy_pro/WWW/小块件模板++/LOGO.html"); ?>
+        <?php include(__DIR__."/../LOGO.html"); ?>
         <div class="">
                 <!-- 顶导航栏 -->
-                <?php include("G:/game/++/phpstudy_pro/WWW/小块件模板++/顶导航栏.html") ?>
+                <?php include(__DIR__."/../顶导航栏.html") ?>
         </div>
 
         <div id="register_interface" class="PasswordForm">
